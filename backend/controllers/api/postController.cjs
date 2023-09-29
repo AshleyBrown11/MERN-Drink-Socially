@@ -1,16 +1,16 @@
-import Tour from "../models/Tour.js";
+const Post = require ("../../backend/models/post.cjs");
 
-// create new tour
-export const createTour = async (req, res) => {
-  const newTour = new Tour(req.body);
+// create new post
+export const createPost = async (req, res) => {
+  const newPost = new Post(req.body);
 
   try {
-    const savedTour = await newTour.save();
+    const savedPost = await newPost.save();
 
     res.status(200).json({
       success: true,
       message: "Successfully created",
-      data: savedTour,
+      data: savedPost,
     });
   } catch (err) {
     res
@@ -19,12 +19,12 @@ export const createTour = async (req, res) => {
   }
 };
 
-// update tour
-export const updateTour = async (req, res) => {
+// update post
+export const updatePost = async (req, res) => {
   const id = req.params.id;
 
   try {
-    const updatedTour = await Tour.findByIdAndUpdate(
+    const updatedPost = await Post.findByIdAndUpdate(
       id,
       {
         $set: req.body,
@@ -35,7 +35,7 @@ export const updateTour = async (req, res) => {
     res.status(200).json({
       success: true,
       message: "Successfully updated",
-      data: updatedTour,
+      data: updatedPost,
     });
   } catch (err) {
     res.status(500).json({
@@ -45,12 +45,12 @@ export const updateTour = async (req, res) => {
   }
 };
 
-// delete tour
-export const deleteTour = async (req, res) => {
+// delete post
+export const deletePost = async (req, res) => {
   const id = req.params.id;
 
   try {
-    await Tour.findByIdAndDelete(id);
+    await Post.findByIdAndDelete(id);
 
     res.status(200).json({
       success: true,
@@ -64,12 +64,12 @@ export const deleteTour = async (req, res) => {
   }
 };
 
-// getSingle tour
-export const getSingleTour = async (req, res) => {
+// getSingle post
+export const getSinglePost = async (req, res) => {
   const id = req.params.id;
 
   try {
-    const tour = await Tour.findById(id).populate("reviews");
+    const post = await Post.findById(id).populate("comments");
 
     res.status(200).json({
       success: true,
@@ -84,22 +84,22 @@ export const getSingleTour = async (req, res) => {
   }
 };
 
-// getAll tour
-export const getAllTour = async (req, res) => {
+// getAll post
+export const getAllPost = async (req, res) => {
   // for pagination
   const page = parseInt(req.query.page);
 
   try {
-    const tours = await Tour.find({})
-      .populate("reviews")
+    const posts = await Post.find({})
+      .populate("comments")
       .skip(page * 8)
       .limit(8);
 
     res.status(200).json({
       success: true,
-      count: tours.length,
+      count: posts.length,
       message: "Successful",
-      data: tours,
+      data: posts,
     });
   } catch (err) {
     res.status(404).json({
@@ -109,19 +109,19 @@ export const getAllTour = async (req, res) => {
   }
 };
 
-// get tour by search
-export const getTourBySearch = async (req, res) => {
+// get post by search
+export const getPostBySearch = async (req, res) => {
   // here 'i' means case sensitive
   const city = new RegExp(req.query.city, "i");
 
-  const maxGroupSize = parseInt(req.query.maxGroupSize);
+  const desc = parseInt(req.query.desc);
 
   try {
     // gte means greater than equal
-    const tours = await Tour.find({
+    const posts = await Post.find({
       city,
-      maxGroupSize: { $gte: maxGroupSize },
-    }).populate("reviews");
+      desc: { $gte: desc },
+    }).populate("comments");
 
     res.status(200).json({
       success: true,
@@ -136,32 +136,13 @@ export const getTourBySearch = async (req, res) => {
   }
 };
 
-// get featured tour
-export const getFeaturedTour = async (req, res) => {
+
+// get post counts
+export const getPostCount = async (req, res) => {
   try {
-    const tours = await Tour.find({ featured: true })
-      .populate("reviews")
-      .limit(8);
+    const postCount = await Post.estimatedDocumentCount();
 
-    res.status(200).json({
-      success: true,
-      message: "Successful",
-      data: tours,
-    });
-  } catch (err) {
-    res.status(404).json({
-      success: false,
-      message: "not found",
-    });
-  }
-};
-
-// get tour counts
-export const getTourCount = async (req, res) => {
-  try {
-    const tourCount = await Tour.estimatedDocumentCount();
-
-    res.status(200).json({ success: true, data: tourCount });
+    res.status(200).json({ success: true, data: postCount });
   } catch (err) {
     res.status(500).json({ success: false, message: "failed to fetch" });
   }

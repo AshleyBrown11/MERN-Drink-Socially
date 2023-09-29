@@ -1,9 +1,9 @@
 import { useState } from 'react'
 import './App.css'
-import { Routes, Route } from 'react-router-dom'
-import NewOrderPage from "../NewOrderPage/NewOrderPage.jsx"
-import OrderHistoryPage from "../OrderHistoryPage/OrderHistoryPage.jsx"
-import AuthPage from "../AuthPage/AuthPage.jsx"
+import { Routes, Route, Navigate } from 'react-router-dom'
+import NewPostPage from "../NewOrderPage/NewOrderPage.jsx"
+import PostHistoryPage from "../OrderHistoryPage/OrderHistoryPage.jsx"
+import LoginPage from "../AuthPage/AuthPage.jsx"
 import NavBar from '../../components/NavBar/NavBar.jsx'
 import { getUser } from '../../utilities/users-service';
 
@@ -19,8 +19,11 @@ function App() {
           {/* NavBar and Routes are only available when user is logged in */}
             <NavBar user={user} setUser={setUser} />
           <Routes>
-            <Route path="/orders/new" element={<NewOrderPage />}/>
-            <Route path="/orders" element={<OrderHistoryPage />}/>
+            <Route path="/" element={<Navigate to="/home" />} />
+            <Route path="/home" element={<Home />} />
+            <Route path="/posts/new" element={<NewPostPage />}/>
+            <Route path="/posts" element={<PostHistoryPage />}/>
+            <Route path="/login" element={<LoginPage />} />
           </Routes>
            </>
           :
@@ -32,4 +35,4 @@ function App() {
   )
 }
 
-export default App
+export default App;

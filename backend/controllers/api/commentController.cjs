@@ -1,8 +1,8 @@
-import Post from "../models/post.cjs";
-import Comment from "../models/comment.cjs";
+const Post = require ("../../backend/models/post.cjs");
+const Comment = require("../../backend/models/comment.cjs");
 
 export const createComment = async (req, res) => {
-  const PostId = req.params.postId;
+  const postId = req.params.postId;
   const newComment = new Comment({ ...req.body });
 
   try {

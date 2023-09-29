@@ -1,6 +1,6 @@
 import express from "express";
-import { createComment } from "./../controllers/commentController.cjs";
-import { userAuth } from "../config/checkToken.cjs";
+import { createComment } from "../../controllers/commentController.cjs";
+import { userAuth } from "../../backend/config/checkToken.cjs";
 
 const router = express.Router();
 

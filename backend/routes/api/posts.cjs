@@ -1,16 +1,15 @@
-import express from "express";
+const express= require (express);
 
-import {
+const {
   createPost,
   deletePost,
   getAllPost,
-  getFeaturedPost,
   getSinglePost,
   getPostBySearch,
   getPostCount,
   updatePost,
-} from "./../controllers/postController.cjs";
-import { adminAuth } from "./../config/checkToken.cjs";
+} = require("../../backend/controllers/postController.cjs");
+const { adminAuth } = require ("../../backend/config/checkToken.cjs");
 
 const router = express.Router();
 
@@ -31,7 +30,6 @@ router.get("/", getAllPost);
 
 // get post by search
 router.get("/search/getPostBySearch", getPostBySearch);
-router.get("/search/getFeaturedPosts", getFeaturedPost);
 router.get("/search/getPostCount", getPostCount);
 
 export default router;

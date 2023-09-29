@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const commentSchema = new Schema(
+const commentSchema = new Schema (
   {
     postId: {
       type: mongoose.Types.ObjectId,
@@ -25,4 +25,4 @@ const commentSchema = new Schema(
   { timestamps: true }
 );
 
-export default mongoose.model("Comment", commentSchema);
+module.exports= model("Comment", commentSchema);

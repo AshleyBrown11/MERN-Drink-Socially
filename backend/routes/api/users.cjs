@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const usersCtrl = require('../../controllers/api/users.cjs');
-const ensureLoggedIn = require('../../config/ensureLoggedIn.cjs')
+const usersCtrl = require('../../backend/controllers/api/users.cjs');
+const ensureLoggedIn = require('../../backend/config/ensureLoggedIn.cjs')
 // const ctrl = (req, res) => {
 
 // }

@@ -1,4 +1,4 @@
-import User from "../models/User.js";
+const User = require ("../backend/models/user.cjs");
 
 // create new User
 export const createUser = async (req, res) => {

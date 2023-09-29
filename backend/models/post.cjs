@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const postSchema = new Schema(
+const postSchema = new Schema (
   {
     title: {
       type: String,
@@ -26,13 +26,8 @@ const postSchema = new Schema(
         ref: "Comment",
       },
     ],
-
-    featured: {
-      type: Boolean,
-      default: false,
-    },
   },
   { timestamps: true }
 );
 
-export default mongoose.model("Post", postSchema);
+module.exports = model("Post", postSchema);
