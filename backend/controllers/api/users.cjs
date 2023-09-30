@@ -3,12 +3,14 @@ const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 
 module.exports = {
-  create,
   login,
   checkToken,
+  createUser,
+  updateUser,
+  deleteUser,
 };
 
-async function create(req, res) {
+async function createUser(req, res) {
   try {
     // Add the user to the database
     const user = await User.create(req.body);
@@ -42,6 +44,52 @@ async function login(req, res) {
     res.status(400).json('Bad Crendentials');
   }
 }
+
+// update User
+async function updateUser(req, res) {
+  const id = req.params.id;
+
+  try {
+    const updatedUser = await User.findByIdAndUpdate(
+      id,
+      {
+        $set: req.body,
+      },
+      { new: true }
+    );
+
+    res.status(200).json({
+      success: true,
+      message: "Successfully updated",
+      data: updatedUser,
+    });
+  } catch (err) {
+    res.status(500).json({
+      success: false,
+      message: "failed to update",
+    });
+  }
+};
+
+// delete User
+ async function deleteUser (req, res) {
+  const id = req.params.id;
+
+  try {
+    await User.findByIdAndDelete(id);
+
+    res.status(200).json({
+      success: true,
+      message: "Successfully deleted",
+    });
+  } catch (err) {
+    res.status(500).json({
+      success: false,
+      message: "failed to delete",
+    });
+  }
+};
+
 
 // client, api-users,user doesn't exist before middleware only thing there is request, and then controller
 function checkToken(req, res) {

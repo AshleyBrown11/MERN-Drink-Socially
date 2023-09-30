@@ -1,7 +1,11 @@
-const Post = require ("../../backend/models/post.cjs");
-const Comment = require("../../backend/models/comment.cjs");
+const Post = require ("../../models/post.cjs");
+const Comment = require("../../models/comment.cjs");
 
-export const createComment = async (req, res) => {
+module.exports = {
+  createComment,
+}
+
+ const createComment = async (req, res) => {
   const postId = req.params.postId;
   const newComment = new Comment({ ...req.body });
 

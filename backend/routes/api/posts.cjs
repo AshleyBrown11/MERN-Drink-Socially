@@ -1,35 +1,28 @@
-const express= require (express);
+const express= require("express");
 
-const {
-  createPost,
-  deletePost,
-  getAllPost,
-  getSinglePost,
-  getPostBySearch,
-  getPostCount,
-  updatePost,
-} = require("../../backend/controllers/postController.cjs");
-const { adminAuth } = require ("../../backend/config/checkToken.cjs");
+
+const ctrl= require("../../controllers/api/postController.cjs");
+
 
 const router = express.Router();
 
 // create new post
-router.post("/", adminAuth, createPost);
+router.post("/", ctrl.createPost);
 
 // update  post
-router.put("/:id", adminAuth, updatePost);
+router.put("/:id", ctrl.updatePost);
 
 // delete post
-router.delete("/:id", adminAuth, deletePost);
+router.delete("/:id", ctrl.deletePost);
 
 // get single post
-router.get("/:id", getSinglePost);
+router.get("/:id", ctrl.getSinglePost);
 
 // get all posts
-router.get("/", getAllPost);
+router.get("/", ctrl.getAllPost);
 
 // get post by search
 router.get("/search/getPostBySearch", getPostBySearch);
 router.get("/search/getPostCount", getPostCount);
 
-export default router;
+module.exports = router;

@@ -1,9 +1,9 @@
-import express from "express";
-import { createComment } from "../../controllers/commentController.cjs";
-import { userAuth } from "../../backend/config/checkToken.cjs";
+const express = require("express");
+const createComment = require("../../controllers/api/commentController.cjs");
+
 
 const router = express.Router();
 
-router.post("/:postId", userAuth, createComment);
+router.post("/:postId",  createComment);
 
 export default router;

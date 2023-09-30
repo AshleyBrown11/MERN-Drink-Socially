@@ -1,7 +1,17 @@
-const Post = require ("../../backend/models/post.cjs");
+const Post = require ("../../models/post.cjs");
+
+module.exports = {
+  createPost,
+  updatePost,
+  deletePost,
+  getSinglePost,
+  getAllPost,
+  getPostBySearch,
+  getPostCount,
+}
 
 // create new post
-export const createPost = async (req, res) => {
+async function createPost (req, res) {
   const newPost = new Post(req.body);
 
   try {
@@ -20,7 +30,7 @@ export const createPost = async (req, res) => {
 };
 
 // update post
-export const updatePost = async (req, res) => {
+async function updatePost (req, res) {
   const id = req.params.id;
 
   try {
@@ -46,7 +56,7 @@ export const updatePost = async (req, res) => {
 };
 
 // delete post
-export const deletePost = async (req, res) => {
+async function deletePost (req, res) {
   const id = req.params.id;
 
   try {
@@ -65,7 +75,7 @@ export const deletePost = async (req, res) => {
 };
 
 // getSingle post
-export const getSinglePost = async (req, res) => {
+async function getSinglePost (req, res)  {
   const id = req.params.id;
 
   try {
@@ -85,7 +95,7 @@ export const getSinglePost = async (req, res) => {
 };
 
 // getAll post
-export const getAllPost = async (req, res) => {
+async function getAllPost (req, res)  {
   // for pagination
   const page = parseInt(req.query.page);
 
@@ -110,7 +120,7 @@ export const getAllPost = async (req, res) => {
 };
 
 // get post by search
-export const getPostBySearch = async (req, res) => {
+async function getPostBySearch  (req, res) {
   // here 'i' means case sensitive
   const city = new RegExp(req.query.city, "i");
 
@@ -138,7 +148,7 @@ export const getPostBySearch = async (req, res) => {
 
 
 // get post counts
-export const getPostCount = async (req, res) => {
+async function getPostCount  (req, res) {
   try {
     const postCount = await Post.estimatedDocumentCount();
 
@@ -147,3 +157,4 @@ export const getPostCount = async (req, res) => {
     res.status(500).json({ success: false, message: "failed to fetch" });
   }
 };
+

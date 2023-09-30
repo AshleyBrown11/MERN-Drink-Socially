@@ -6,13 +6,14 @@ import postImg04 from "../images/post-img04.jpg";
 const posts = [
   {
     id: "01",
-    title: "Cant Get Enough",
-    city: "London",
-    desc: "this is the description",
+    title: "Its My Birthday",
+    city: "Atlanta",
+    desc: "Dance like no one is watching!",
     reviews: [
       {
         name: "ivy rose",
-        likes: 69,
+        likes: 100,
+        comments: "Happy 10th Birthday",
       },
     ],
     photo: postImg01,
@@ -20,13 +21,14 @@ const posts = [
   },
   {
     id: "02",
-    title: "On the Beach",
-    city: "Indonesia",
-    desc: "this is the description",
+    title: "Different",
+    city: "Atlanta",
+    desc: "Never Dim Your Light!",
     comments: [
       {
         name: "blue rain",
-        likes: 50,
+        likes: 80,
+        comments: ""
       },
     ],
     photo: postImg02,
@@ -34,13 +36,14 @@ const posts = [
   },
   {
     id: "03",
-    title: "Birthday Celebration",
-    city: "Thailand",
-    desc: "this is the description",
+    title: "Brown Skin Girl",
+    city: "Atlanta",
+    desc: "Princess",
     comments: [
       {
         name: "blah blah",
         likes: 95,
+        comments: "You Go Girl!"
       },
     ],
     photo: postImg03,
@@ -48,13 +51,14 @@ const posts = [
   },
   {
     id: "04",
-    title: "Living The Life",
-    city: "Thailand",
-    desc: "this is the description",
+    title: "Its Me",
+    city: "Brooklyn, NY",
+    desc: "In these NY Streets",
     comments: [
       {
         name: "john doe",
-        likes: 5,
+        likes: 66,
+        comments: "Beautiful Mama",
       },
     ],
     photo: postImg04,

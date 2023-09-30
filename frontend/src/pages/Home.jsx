@@ -2,11 +2,11 @@ import React from "react";
 import "../styles/home.css";
 
 import { Container, Row, Col } from "reactstrap";
-import loveImg from "../assets/images/hero-img01.jpg";
-import loveImg02 from "../assets/images/hero-img02.jpg";
-import loveVideo from "../assets/images/hero-video.mp4";
-import worldImg from "../assets/images/world.png";
-import SearchBar from "../shared/SearchBar";
+import loveImg from "../assets/images/love-img01.jpg";
+import loveImg02 from "../assets/images/love-img02.jpg";
+import loveVideo from "../assets/images/love-video.MP4";
+// import worldImg from "../assets/images/world.png";
+// import SearchBar from "../shared/SearchBar";
 
 
 const Home = () => {

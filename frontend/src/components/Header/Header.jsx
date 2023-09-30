@@ -33,7 +33,7 @@ const Header = () => {
     navigate("/");
   };
 
-  const stickyHeaderFunc = () => {
+  const stickyHeaderFunc = () => { // smart navigation tool that fixes the menu to the top of the screen as the user scrolls down a page
     window.addEventListener("scroll", () => {
       if (
         document.body.scrollTop > 80 ||
