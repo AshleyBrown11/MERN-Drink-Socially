@@ -5,7 +5,7 @@ module.exports = {
   createComment,
 }
 
- const createComment = async (req, res) => {
+ async function createComment(req, res) {
   const postId = req.params.postId;
   const newComment = new Comment({ ...req.body });
 
