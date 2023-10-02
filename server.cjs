@@ -2,10 +2,10 @@ require("dotenv").config();
 const express = require("express");
 const path = require("path");
 const logger = require("morgan");
-const ensureLoggedIn = require("./backend/config/ensureLoggedIn.cjs")
+const ensureLoggedIn = require("./config/ensureLoggedIn.cjs")
 
 //connect to MongoDB (we connected to the db in database.cjs and here we are requiring the app to connect to db upon loading)
-require("./backend/config/database.cjs")
+require("./config/database.cjs")
 
 const app = express();
 
@@ -20,22 +20,20 @@ app.use(express.static(path.join(__dirname, 'dist')));
 // to serve from the production 'dist' folder. Makes dist folder a static asset to be able to give to browser for production
 
 //Giving App checkToken middleware (sets req.user and req.exp properties on the request object)
-app.use(require("./backend/config/checkToken.cjs"))
+app.use(require("./config/checkToken.cjs"))
 
 // Put API routes here, before the "catch all" route
 app.get('/test', (req, res) => {
     res.send('You just hit an API route');
   });
 
-const userRouter = require("./backend/routes/api/users.cjs")
+const userRouter = require("./routes/api/users.cjs")
 //Router setup
 //if request begins with /api/users, direct to user router
 app.use("/api/users", userRouter)
 
 // ensureLoggedIn Middleware makes all /api/orders routed protected by login
-app.use("/api/posts", ensureLoggedIn , require("./backend/routes/api/posts.cjs"))
 
-app.use("/api/comments", ensureLoggedIn, require("./backend/routes/api/comments.cjs"))
 
 // The following "catch all" route (note the *) is necessary
 // to return the index.html on all non-AJAX requests
