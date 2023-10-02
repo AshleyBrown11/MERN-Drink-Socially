@@ -6,7 +6,7 @@ import DeleteUser from "../DeleteUser/DeleteUser.jsx"
 import LoginPage from "../LoginPage/LoginPage.jsx"
 import NavBar from '../../components/NavBar/NavBar.jsx'
 import { getUser } from '../../utilities/users-service';
-// import Home from "../Home/Home.jsx"
+import SearchBar from '../../components/SearchBar/SearchBar'
 
 function App() {
   const [user, setUser] = useState(getUser())
@@ -25,6 +25,8 @@ function App() {
             <Route path="/posts/new" element={<UpdateUserPage user={user} setUser={setUser} />}/>
             <Route path="/posts" element={<DeleteUser user={user}/>}/>
             <Route path="/login" element={<LoginPage />} />
+            <Route path="/drink" element={<SearchBar />} />
+            
           </Routes>
            </>
           :

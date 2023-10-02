@@ -1,42 +1,42 @@
-import "./index.css";
-import Search from "./components/Search";
-import WeatherDisplay from "./components/WeatherDisplay";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
 
-export default function App() {
+export default function SearchBar() {
   // state to hold the weather
-  const [weather, setWeather] = useState(null);
-  const [cityName, setCityName] = useState("");
-  const apiKey = process.env.REACT_APP_API_KEY;
+  const [cocktail, setCocktail] = useState(" ");
+ 
+  // const apiKey = process.env.REACT_APP_API_KEY;
   
-  // function to fetch the weather
-  const fetchWeather = async () => {
+ 
+  const fetchCocktail = async () => {
     try {
-      const url = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}&units=imperial`;
+      const url = `https://www.thecocktaildb.com/api/json/v1/1/random.php`;
       const response = await axios.get(url);
-      setWeather(response.data);
+      const drink = response.data.drinks[0]
+      setCocktail(drink)
       console.log(response.data);
-      return response.data;
-    } catch (error) {
+      } catch (error) {
       console.error(error);
     }
   };
 
   useEffect(() => {
-    fetchWeather();
+    fetchCocktail()
+    
   }, []);
 
   
   
     return (
       <div className="App">
-        <header>Weather Love Station</header>
-       <Search weatherSearch= {setCityName} cityName={cityName} fetchWeather={fetchWeather} /> 
-      <WeatherDisplay weather= {weather}/> 
-      <audio src="/waterfalls.mp3" controls loop/>
-      </div>
+       
+        <h1>See My Cocktail</h1>
+        <img src={cocktail.strDrinkThumb}></img>
+        <h2>{cocktail.strDrink}</h2>
+        <p>{cocktail.strInstructions}</p>
+        
+     </div>
       
     );
   }
