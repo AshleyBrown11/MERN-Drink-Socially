@@ -5,7 +5,7 @@
 ## Introduction
 Welcome to the MERN CRUD User and Third-Party API Drinking App! This project is designed to provide a comprehensive example of a web application built with the MERN stack (MongoDB, Express.js, React.js, and Node.js) that allows users to perform CRUD (Create, Read, Update, Delete) operations for user profiles while also integrating a third-party API to provide drinking-related information. 
 
-![App Screenshot](CRUD-MERN-Drink-Heaven-Project.png)
+(CRUD-MERN-Drink-Heaven-Project.png)
 
 The application allows users to create, read, update, and delete user profiles, providing essential functionalities for managing user data. Additionally, it leverages a third-party API to fetch data related to various alcoholic beverages, such as cocktails, ingredients, and recipes, enhancing the user experience with exciting and relevant content.
 
