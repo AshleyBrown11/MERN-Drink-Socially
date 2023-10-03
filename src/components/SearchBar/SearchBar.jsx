@@ -29,14 +29,18 @@ export default function SearchBar() {
   
   
     return (
-      <div className="App">
-       
-        <h1>See My Cocktail</h1>
-        <img src={cocktail.strDrinkThumb}></img>
+      <div className="container">
+       <h1>What's Your Favorite Cocktail</h1>
         <h2>{cocktail.strDrink}</h2>
+        <img src={cocktail.strDrinkThumb}></img>
+        <p>{cocktail.strIngredient1}</p>
+        <p>{cocktail.strIngredient2}</p>
+        <p>{cocktail.strIngredient3}</p>
+        <p>{cocktail.strIngredient4}</p>
         <p>{cocktail.strInstructions}</p>
-        
-     </div>
+
+          </div>
+   
       
     );
   }

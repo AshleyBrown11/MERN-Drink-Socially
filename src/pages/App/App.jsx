@@ -1,7 +1,6 @@
 import { useState } from 'react'
-import './App.css'
 import { Routes, Route, Navigate } from 'react-router-dom'
-import UpdateUserPage from "../UpdateUserPage/UpdateUserPage.jsx"
+import UpdateUserPage from '../UpdateUserPage/UpdateUserPage'
 import DeleteUser from "../DeleteUser/DeleteUser.jsx"
 import LoginPage from "../LoginPage/LoginPage.jsx"
 import NavBar from '../../components/NavBar/NavBar.jsx'
@@ -20,7 +19,7 @@ function App() {
           {/* NavBar and Routes are only available when user is logged in */}
             <NavBar user={user} setUser={setUser} />
           <Routes>
-            <Route path="/" element={<Navigate to="/home" />} />
+            <Route path="/" element={<Navigate to="/" />} />
             {/* <Route path="/home" element={<Home />} /> */}
             <Route path="/posts/new" element={<UpdateUserPage user={user} setUser={setUser} />}/>
             <Route path="/posts" element={<DeleteUser user={user}/>}/>

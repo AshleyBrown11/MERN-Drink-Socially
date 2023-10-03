@@ -1,7 +1,6 @@
-import {useState} from "react"
 import UpdateUser from "../../components/UpdateUser/UpdateUser";
 
-function UpdateUserPage({user, setUser}) {
+function UpdateUser({user, setUser}) {
   
   function handleChange(evt){
     setPost({...post, [evt.target.name]: evt.target.value});
@@ -28,4 +27,4 @@ function UpdateUserPage({user, setUser}) {
  
   }
   
-  export default UpdateUserPage
+  export default UpdateUser

@@ -8,6 +8,17 @@
   --blue: #007Ff7;
   --text-light: #968c84;
   --text-dark: #615954;
+  display: flexbox;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 50%;
+  margin: 0;
+  font-family: "Open Sans", sans-serif;
+  background: #222;
+  background-image: url("https://source.unsplash.com/1600x900/?dinner");
+  font-size: 100%;
+  text-align: center;
 }
 
 *, *:before, *:after {
@@ -21,9 +32,44 @@ body {
   sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: var(--tan-4);
+  background-color: var(--tan-3);
   padding: 2vmin;
-  height: 100vh;
+  height: 200vh;
+  justify-content: center;
+}
+
+img {
+  background: gray;
+  color: black;
+  padding: 1em;
+  border-radius: 30px;
+  width: 100%;
+  max-width: 400px;
+  margin: 1em;
+  
+}
+
+p {
+  font-weight: 500;
+  align-items: center;
+  font-size: 1.3rem;
+  color:blueviolet;
+
+
+}
+
+h2 {
+  margin: 100;
+  font-size: 1.6rem;
+  color:blueviolet;
+  
+}
+
+h1 {
+  margin: 0;
+  margin-bottom: 0.4em;
+  font-size: 2rem;
+  color:black;
 }
 
 code {
@@ -79,10 +125,11 @@ code {
 }
 
 .form-container {
-  padding: 3vmin;
-  background-color: var(--tan-1);
+  padding: 1vmin;
+  background-color: black;
   border: .1vmin solid var(--tan-3);
   border-radius: 1vmin;
+  justify-content: center;
 }
 
 p.error-message {

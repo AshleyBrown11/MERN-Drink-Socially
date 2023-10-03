@@ -12,9 +12,10 @@ function NavBar(props) {
   return (
     <nav>
       <h1>Welcome, {props.user.name}</h1>
-      <Link to="/posts">Delete User</Link>
+      <Link to="/posts">Delete Account</Link>
       &nbsp; | {" "}
-      <Link to="/posts/new">Update User</Link><br />
+      <Link to="/posts/new">Update Account</Link>
+      <br />
       <Link to="/drink">Drink</Link>
       <br />
       <Link to="" onClick={handleLogOut}>Log Out</Link>
