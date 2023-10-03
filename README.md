@@ -15,7 +15,6 @@ The application allows users to create, read, update, and delete user profiles, 
 - React.js: A JavaScript library for building the frontend user interface.
 - Node.js: A JavaScript runtime for building server-side applications.
 - Axios: A promise-based HTTP client for making API requests.
-- Bootstrap: A CSS framework for responsive and attractive UI design.
 - Third-Party API (e.g., TheCocktailDB API): Used to fetch drinking-related information.
 - Render: A cloud platform for deploying the app.
 - Git and GitHub: Version control and collaborative development.
@@ -51,16 +50,16 @@ To run the project locally:
    npm start
    ```
 
-Now, you can access the app in your web browser at `http://localhost:3000`.
+Now, you can access the app in your web browser at `http://localhost:5173`.
 
 ## Unsolved Problems
-- Adding user authentication and authorization for secure user management.
 - Implementing pagination and filtering for a better user experience when viewing a large number of user profiles.
+- Allowing the user to search for their favorite drink.
 - Enhancing error handling and validation for a more robust application.
 
 ## Future Enhancements
-- User authentication and authorization using technologies like JWT (JSON Web Tokens).
 - Integration with additional third-party APIs to provide more diverse drinking-related content.
+- Providing drinking game ideas for parties.
 - Implementing real-time updates using WebSockets for a more interactive experience.
 - Mobile responsiveness and improved UI/UX design.
 - Deployment automation and continuous integration (CI/CD) for smoother updates and releases.

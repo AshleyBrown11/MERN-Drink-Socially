@@ -15,7 +15,7 @@ export default function SearchBar() {
       const response = await axios.get(url);
       const drink = response.data.drinks[0]
       setCocktail(drink)
-      console.log(response.data);
+     console.log(response.data);
       } catch (error) {
       console.error(error);
     }
