@@ -1,5 +1,5 @@
 import {useState} from "react"
-import UpdateUser from "../../components/UpdateUser/UpdateUser";
+import UpdateUser from "../../components/UpdateUser/UpdateUser.jsx";
 
 function UpdateUserPage({user, setUser}) {
   
